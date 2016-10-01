@@ -5,7 +5,6 @@
   "main": "main.js",
   "dependencies": {
     "commander": "^2.9.0",
-    "ffi": "^2.0.0",
     "dxt": "^1.0.0",
     "mkdirp": "^0.5.1",
     "pngjs": "^2.2.0",

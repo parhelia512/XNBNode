@@ -1,6 +1,5 @@
 'use strict';
 let ref = require('ref');
-let ffi = require('ffi');
 let Struct = require('ref-struct');
 let path = require('path');
 
@@ -20,16 +19,6 @@ let XMEMCODEC_PARAMETERS_LZX = Struct([
 
 let XMEMCODEC_PARAMETERS_LZXPtr = ref.refType(XMEMCODEC_PARAMETERS_LZX);
 
-
-let dllPath = path.join(__dirname, 'xcompress32.dll');
-let xcompress = new ffi.Library(dllPath, {
-    'XMemCompress': ['int', ['int', bytePtr, intPtr, bytePtr, 'int']],
-    'XMemCreateCompressionContext': ['int', ['int', XMEMCODEC_PARAMETERS_LZXPtr, 'int', intPtr]],
-    'XMemDestroyCompressionContext': ['void', ['int']],
-    'XMemDecompress': ['int', ['int', bytePtr, intPtr, bytePtr, 'int']],
-    'XMemCreateDecompressionContext': ['int', ['int', XMEMCODEC_PARAMETERS_LZXPtr, 'int', intPtr]],
-    'XMemDestroyDecompressionContext': ['void', ['int']]
-});
 
 exports.decompress = function decompress(compressedBuffer, decompressedBuffer) {
     let codecParams = new XMEMCODEC_PARAMETERS_LZX({
