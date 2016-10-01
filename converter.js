@@ -21,7 +21,7 @@ function getXnbType(inputBuffer) {
     assert.equal(buffer.consume(1).readInt8(0), 5);
 
     let flags = buffer.consume(1).readInt8(0);
-    let isCompressed = flags & 0x80;
+    let isCompressed = flags & 0x40;
     let isHiDef = flags & 0x01;
 
     let compressedSize = buffer.consume(4).readUInt32LE(0);
@@ -69,7 +69,7 @@ function XnbToObject(inputBuffer) {
     assert.equal(buffer.consume(1).readInt8(0), 5);
 
     let flags = buffer.consume(1).readInt8(0);
-    let isCompressed = flags & 0x80;
+    let isCompressed = flags & 0x40;
     let isHiDef = flags & 0x01;
 
     let compressedSize = buffer.consume(4).readUInt32LE(0);
@@ -139,7 +139,7 @@ function ObjectToXnb(data) {
     buffer.writeByte(5);
 
     let flags = 0;
-    if(data.xnbData.compressed) flags |= 0x80;
+    if(data.xnbData.compressed) flags |= 0x40;
     if(data.xnbData.hiDef) flags |= 0x01;
 
     buffer.writeByte(flags);

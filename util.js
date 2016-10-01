@@ -34,7 +34,7 @@ function parseMainType(type) {
 }
 
 function simplifyType(type) {
-     let mainType = parseMainType(type);
+    let mainType = parseMainType(type);
 
     let isArray = mainType.endsWith('[]');
     if(isArray) {
