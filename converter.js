@@ -135,7 +135,7 @@ function ObjectToXnb(data) {
     let buffer = new writer.BufferWriter();
 
     buffer.writeAscii('XNB');
-    buffer.writeAscii('w');
+    buffer.writeAscii('d');
     buffer.writeByte(5);
 
     let flags = 0;
