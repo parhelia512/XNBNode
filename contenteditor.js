@@ -164,7 +164,7 @@ function processMap(data, tilesheetCallback) {
         skipString(); // skip description
 
         let strBytes = buffer.consume(4).readInt32LE();
-        let imgSource = buffer.consume(strBytes);
+        let imgSource = buffer.consume(strBytes).toString();
 
         imgSource = tilesheetCallback(imgSource);
 
