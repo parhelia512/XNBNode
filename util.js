@@ -66,6 +66,10 @@ function simplifyType(type) {
         case 'System.String':
             return 'String';
 
+        case 'Microsoft.Xna.Framework.Content.Int16Reader':
+        case 'System.Int16':
+            return 'Int16';
+
         case 'Microsoft.Xna.Framework.Content.Int32Reader':
         case 'System.Int32':
             return 'Int32';
