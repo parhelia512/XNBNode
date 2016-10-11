@@ -310,6 +310,16 @@ class RectangleReader extends Reader {
     }
 }
 
+class Int16Reader extends Reader {
+    _consume(buffer, readerResolver) {
+        return buffer.consume(2).readInt16LE();
+    }
+
+    get type() {
+        return 'Int16';
+    }
+}
+
 class Int32Reader extends Reader {
     _consume(buffer, readerResolver) {
         return buffer.consume(4).readInt32LE();
@@ -365,6 +375,9 @@ function getReader(type) {
 
         case 'String':
             return new StringReader();
+
+        case 'Int16':
+            return new Int16Reader();
 
         case 'Int32':
             return new Int32Reader();

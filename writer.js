@@ -217,6 +217,12 @@ class RectangleWriter {
     }
 }
 
+class Int16Writer {
+    write(buffer, number, writerResolver) {
+        buffer.writeInt16LE(Number(number));
+    }
+}
+
 class Int32Writer {
     write(buffer, number, writerResolver) {
         buffer.writeInt32LE(Number(number));
